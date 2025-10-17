@@ -2,7 +2,8 @@ NAME = libasm.a
 
 SRC = 	ft_strlen.s \
 		ft_strcpy.s \
-		ft_strcmp.s
+		ft_strcmp.s \
+		ft_write.s
 
 OBJS = ${SRC:.s=.o}
 
@@ -22,7 +23,7 @@ ${NAME}: ${OBJS}
 	${NASM} ${NASMFLAGS} $< -o $@
 
 test: all
-	$(CC) $(CFLAGS) $(MAIN) -L. -lasm -o test
+	$(CC) $(CFLAGS) $(MAIN) -o test -L. -lasm -no-pie
 
 clean:
 	rm -f ${OBJS}

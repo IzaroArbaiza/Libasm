@@ -16,3 +16,12 @@ ft_strlen:
 ;Aquí finaliza la funcion devolviendo rax
 .end:
 	ret				;Esto es un return
+
+
+;size_t	strlen(char *s) {
+;	int i = 0;
+;	while(s) {
+;		i++
+;	}
+;	return (i);
+;}

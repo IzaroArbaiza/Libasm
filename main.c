@@ -4,6 +4,7 @@
 size_t ft_strlen(const char *s);
 char *ft_strcpy(char *dst, const char *src);
 int ft_strcmp(const char *s1, const char *s2);
+ssize_t ft_write(int fd, const void *buf, size_t count);
 
 int main(void)
 {
@@ -54,7 +55,14 @@ int main(void)
 
 	printf("========================================\n\n");
 
-	
+	// -----------------------------
+    // Pruebas ft_write
+    // -----------------------------
+    const char *msg = "Hola desde ft_write!\n";
+    ssize_t ret = ft_write(1, msg, ft_strlen(msg)); // escribe en stdout
+    printf("ft_write returned: %zd\n\n", ret);
+
+	printf("========================================\n\n");
 
 	return (0);
 }
