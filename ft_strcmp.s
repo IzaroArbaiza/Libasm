@@ -8,7 +8,7 @@ ft_strcmp:
 .loop:
 	mov bl, [rdi + rax]		;bl = s1[i]
 	mov bh, [rsi + rax]		;bh = s2[i]
-	cmp bl, 0				;s1[i] != '\0'	||	s1[i] == '\0' => sale del bucle
+	cmp bl, 0				;s1[i] != '\0'	||	s1[i] == '\0' => exit the loop
 	je .return
 	cmp bh, 0				;s2[i] != '\0'	||	s2[i] == '\0'
 	je .return
