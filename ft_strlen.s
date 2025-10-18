@@ -1,21 +1,20 @@
 section .text
 
-;esta función quiero exportarla para que C la pueda llamar. Si no, no lo encuentra en main.c
+;I want to export the function so C could call it. If not, it won't find it in main.c
 global ft_strlen
 
-;A partir de aquí inicia la funcion, declarando el nombre de la funcion primero
+;From here the function starts, declaring the name of the function first
 ft_strlen:
-	mov rax, 0		;Inicializar variable rax a 0 | mov	<registro>, <valor>			En C => i = 0
+	mov rax, 0					;Initialize variable rax a 0 | mov	<register>, <value>			En C => i = 0
 
 .loop:
-	cmp byte [rdi + rax], 0		;compara el primer carácter(byte) de rdi con rax
-	je .end						;finaliza el bucle si ha terminado
-	inc rax						;incrementa rax =>	rax++	|	add rax, 1	suma +1 a rax	=>	rax += 1
-    jmp .loop					;repite el bucle .loop
+	cmp byte [rdi + rax], 0		;compare the first character(byte) of rdi with rax
+	je .end						;stop loop if it finished
+	inc rax						;increment rax =>	rax++	|	add rax, 1	sum +1 to rax	=>	rax += 1
+    jmp .loop					;repeat .loop
 
-;Aquí finaliza la funcion devolviendo rax
 .end:
-	ret				;Esto es un return
+	ret							;return
 
 
 ;size_t	strlen(char *s) {
