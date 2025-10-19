@@ -1,8 +1,13 @@
 #include <stdio.h>
 #include <string.h>
+<<<<<<< HEAD
+#include <unistd.h>
+#include <fcntl.h>
+=======
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h> 
+>>>>>>> 64a2ce8f32c65226514ebc463f73b97fef44a234
 
 size_t ft_strlen(const char *s);
 char *ft_strcpy(char *dst, const char *src);
