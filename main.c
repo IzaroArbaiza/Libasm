@@ -3,39 +3,41 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <errno.h> 
+#include <stdlib.h>
 
-size_t ft_strlen(const char *s);
-char *ft_strcpy(char *dst, const char *src);
-int ft_strcmp(const char *s1, const char *s2);
-ssize_t ft_write(int fd, const void *buf, size_t count);
-ssize_t ft_read(int fd, void *buf, size_t count);
+size_t	ft_strlen(const char *s);
+char	*ft_strcpy(char *dst, const char *src);
+int		ft_strcmp(const char *s1, const char *s2);
+ssize_t	ft_write(int fd, const void *buf, size_t count);
+ssize_t	ft_read(int fd, void *buf, size_t count);
+char	*ft_strdup(const char *s);
 
 int main(void)
 {
-	const char *test_strlen[] = {
+	const char *test[] = {
 		"",
 		"Hello world!",
 		"1234567890",
 		"This is a very long test string to see if the function works correctly",
 		NULL
 	};
-	for (int i = 0; test_strlen[i] != NULL; i++)
+	for (int i = 0; test[i] != NULL; i++)
 	{
 		printf("Test strlen %d:\n", i + 1);
-		printf("String: \"%s\"\n", test_strlen[i]);
-		printf("Resultado strlen: %zu\n", strlen(test_strlen[i]));
-		printf("Resultado ft_strlen: %zu\n\n", ft_strlen(test_strlen[i]));
+		printf("String: \"%s\"\n", test[i]);
+		printf("Resultado strlen: %zu\n", strlen(test[i]));
+		printf("Resultado ft_strlen: %zu\n\n", ft_strlen(test[i]));
 	}
 
 	printf("========================================\n\n");
 
 	char buffer[100];
-	for (int i = 0; test_strlen[i] != NULL; i++) {
+	for (int i = 0; test[i] != NULL; i++) {
 		printf("Test strcpy %d:\n", i + 1);
-		printf("Source: \"%s\"\n", test_strlen[i]);
-		strcpy(buffer, test_strlen[i]);
+		printf("Source: \"%s\"\n", test[i]);
+		strcpy(buffer, test[i]);
 		printf("strcpy:    \"%s\"\n", buffer);
-		ft_strcpy(buffer, test_strlen[i]);
+		ft_strcpy(buffer, test[i]);
 		printf("ft_strcpy: \"%s\"\n\n", buffer);
 	}
 
@@ -80,6 +82,13 @@ int main(void)
 	printf("\nft_read invalid returned: %zd, errno: %d\n\n", err_read, errno);
 
 	printf("========================================\n\n");
+
+	for (int i = 0; test[i] != NULL; i++) {
+		char *dup = ft_strdup(test[i]);
+		printf("Original: '%s'\n", test[i]);
+		printf("Duplicated: '%s'\n\n", dup);
+		free(dup);
+	}
 
 	return (0);
 }

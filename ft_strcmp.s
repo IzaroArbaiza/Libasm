@@ -17,9 +17,9 @@ ft_strcmp:
 	inc rax					;i++
 	jmp .loop
 
-.return
-	movzx eax, bl			;int eax = bl
-	movzx ebx, bh
+.return:
+	movsx eax, bl			;int eax = bl
+	movsx ebx, bh
 	sub eax, ebx			;eax -= ebx
 	ret						;return eax
 
